@@ -18,10 +18,12 @@ This document outlines the steps taken to set up Apache Kafka version 4.0.0 in *
 ## Kafka Setup Process
 
 1. **Download Apache Kafka**
-   ```bash
-   wget https://downloads.apache.org/kafka/4.0.0/kafka_2.13-4.0.0.tgz
-   tar -xzf kafka_2.13-4.0.0.tgz
-   cd kafka_2.13-4.0.0
+    - Visit the [Apache Kafka Downloads page.](https://link-url-here.org)
+    - Download the latest binary release (e.g., kafka_2.13-3.5.1.tgz).
+    - Extract the downloaded .tgz file:
+    - Use 7-Zip or a similar tool.
+    - Right-click the file and select 7-Zip > Extract Here twice to unpack both layers.
+    - Move the extracted folder to a preferred location, e.g., C:\kafka.
 
 
 
