@@ -77,10 +77,34 @@ This document outlines the steps taken to set up Apache Kafka version 4.0.0 in *
 
 6. **Start Kafka in KRaft mode**
     - Open CMD in administrator mode
-    - Open kafka in KRaft mode as the following command:
+    - Open kafka in KRaft mode from the following command:
         - .\bin\windows\kafka-server-start.bat .\config\broker.properties
-    - if you see "[KafkaServer id=0] started" then it means the system fully running Kafka 4.0.0 in KRaft mode
+    - If you see "[KafkaServer id=0] started" on the CMD then it means the system fully running Kafka 4.0.0 in KRaft mode
+
+7. **Create kafka Topic**
+    - Open CMD in 
+    - Create kafka topic from the following command:
+        - .\bin\windows\kafka-topics.bat --create --topic <TopicName> --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1
 
 ## Challenges
 
-1. **Prerequisites**
+1. **Shutdown broker because all log dirs in C:/tmp/kraft-combined-logs have failed**
+    - Challenge: This happends because Apache Kafka cannot write to or access the directory specified for storing log data
+    - Resolutions: Make sure to open CMD in in administrator mode
+2. **Kafka stops replicate message from producer.py**
+    - Challenge: When using the previous version of Kafka (kafka_2.13-3.5.1), the producer.py can connect to the database and sending the message to kafka but kafka didn't replicate the message. As a result, comsumer.py cannot consume any message from kafka.
+    - Resolutions: Upgraded to kafka_2.13-4.0.0 using KRaft mode (ZooKeeper-free), which resolved message replication and delivery issues, likely caused by outdated broker configurations in 3.5.1.
+3. **Kafka Topic Mismatch**
+    - Challenge: The producer was sending messages to a topic that had not been explicitly created beforehand. As a result, Kafka silently dropped the messages, and the consumer could not find or subscribe to the intended topic.
+    - Resolution: add auto.create.topics.enable=true into broker.properties
+4. **Python Kafka library does not recognize the Kafka broker version**
+    - Challenge: The Python script using the kafka-python library attempted to connect to a Kafka broker running version 2.8.0 or higher. However, the client library did not recognize this version and raised an UnrecognizedBrokerVersion error because it lacked support for newer Kafka protocol versions.
+    - Resolution: Use the Confluent Kafka client from the following step
+        - Open CMD in administrator mode
+        - Run the following command in CMD
+            - pip install confluent-kafka 
+        - in python file, import the confluent-kafka library from the following code:
+            - from confluent_kafka import Producer
+        - in python file, create the configuration and initialize the producer:
+            - conf = {'bootstrap.servers': '127.0.0.1:9092'}
+            - producer = Producer(conf)
