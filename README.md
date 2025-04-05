@@ -27,16 +27,56 @@ This project implements a real-time data pipeline for air quality prediction usi
 
 ---
 
+## Prerequisites
+
+1. Please refer to kafka-setup for set up kafka.
+2. Require python library
+    - from confluent_kafka import Consumer, Producer
+    - import pandas as pd
+    - import numpy as np
+    - from sklearn.preprocessing import StandardScaler
+    - from sklearn.linear_model import LinearRegression, ElasticNet
+    - from sklearn.metrics import mean_squared_error, mean_absolute_error
+    - import lightgbm as lgb
+    - from itertools import product
+    - import matplotlib.pyplot as plt
+    - import seaborn as sns
+    - from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
+    - import statsmodels.api as sm
+    - from statsmodels.tsa.stattools import pacf
+    - from statsmodels.tsa.ar_model import AutoReg
+    - from pandas.api.types import CategoricalDtype
+    - import json
+    - import os
+    - import pickle
+    - import time
+    - import logging
+    - from ucimlrepo import fetch_ucirepo
+
+---
+
 ## How It Works
 
-1. **producer.py**
+1. **Start Kafka in KRaft mode**
+    - Open CMD in administrator mode
+    - Open kafka in KRaft mode from the following command:
+        - .\bin\windows\kafka-server-start.bat .\config\broker.properties
+    - If you see "[KafkaServer id=0] started" on the CMD then it means the system fully running Kafka 4.0.0 in KRaft mode
+
+2. **Create kafka Topic**
+    - Open CMD in administrator mode
+    - Open kafka in KRaft mode from the following command:
+        - .\bin\windows\kafka-server-start.bat .\config\broker.properties
+    - If you see "[KafkaServer id=0] started" on the CMD then it means the system fully running Kafka 4.0.0 in KRaft mode    
+
+3. **producer.py**
     - Reads the UCI Air Quality dataset
     - Selecting test dataset
     - Simulates real-time streaming using a time delay
     - Publishes JSON-encoded records to Kafka topic (`uci_air_quality_data`)
     - Sends an `end_of_stream` marker when done
 
-2. **consumer.py**
+4. **consumer.py**
     - Subscribes to the Kafka topic
     - Applies data cleaning, rolling averages, lag features, and dummy encoding
     - Loads pre-trained models and scalers for each target pollutant (`COGT`, `NOxGT`, `NO2GT`, `C6H6GT`)
