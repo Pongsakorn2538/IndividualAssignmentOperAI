@@ -85,7 +85,7 @@ This document outlines the steps taken to set up Apache Kafka version 4.0.0 in *
     - Open CMD in 
     - Create kafka topic from the following command:
         - .\bin\windows\kafka-topics.bat --create --topic <TopicName> --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1
-
+        - e.g. .\bin\windows\kafka-topics.bat --create --topic uci_air_quality_data --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1
 ## Challenges
 
 1. **Shutdown broker because all log dirs in C:/tmp/kraft-combined-logs have failed**
