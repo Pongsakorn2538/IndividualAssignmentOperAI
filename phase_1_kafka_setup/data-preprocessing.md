@@ -4,11 +4,15 @@
 
 This document outlines the data preprocessing steps applied to producer and consumer python file. The preprocessing strategy ensures that the dataset is clean, consistent, and ready for downstream tasks.
 
+---
+
 ## Data Source
 
 - **Dataset:** [UCI Air Quality Dataset](https://archive.ics.uci.edu/dataset/360/air+quality)
 - **Accessed via:** `fetch_ucirepo(id=360)` from the `ucimlrepo` package
 - **Content:** Time-series air pollution data collected in an Italian city over several months
+
+---
 
 ## Data Preprocessing Strategy 
 

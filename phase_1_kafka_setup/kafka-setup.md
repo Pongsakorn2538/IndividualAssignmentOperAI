@@ -1,4 +1,4 @@
-# Apache Kafka Setup Documentation (KRaft Mode)
+# Apache Kafka Setup Documentation
 
 ## Introduction
 
