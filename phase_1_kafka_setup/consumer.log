@@ -1,0 +1,4 @@
+2025-04-05 07:40:04,211 - INFO - Subscribed to topic: uci_air_quality_data
+2025-04-05 07:40:04,211 - INFO - Starting Kafka consumer...
+2025-04-05 07:55:09,722 - INFO - End-of-stream marker received.
+2025-04-05 07:55:09,743 - INFO - Consumer closed.
