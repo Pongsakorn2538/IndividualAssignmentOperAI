@@ -21,25 +21,25 @@ This document outlines the steps taken to set up Apache Kafka version 4.0.0 in *
     - Download Java Development Kit (JDK)
         - Install JDK 8 or higher: Download from the Oracle website or use OpenJDK.
         - Set JAVA_HOME Environment Variable:
-            1. Right-click on This PC or My Computer and select Properties.
-            2. Click on Advanced system settings.
-            3. Click on Environment Variables.
-            4. Under System variables, click New:
+            - Right-click on This PC or My Computer and select Properties.
+            - Click on Advanced system settings.
+            - Click on Environment Variables.
+            - Under System variables, click New:
                 - Variable name: JAVA_HOME
                 - Variable value: Path to your JDK installation (e.g., C:\ProgramFiles\Java\jdk-17.0.1)
-            5. Edit the Path variable:
+            - Edit the Path variable:
                 - Add %JAVA_HOME%\bin to the list.
     - Create kafka folder
-        1. Go to C:\
-        2. Create new folder and name it as "kafka"
+        - Go to C:\
+        - Create new folder and name it as "kafka"
 
 2. **Download Apache Kafka**
-    - Visit the [Apache Kafka Downloads page.](https://link-url-here.org)
+    - Visit the [Apache Kafka Downloads page.](https://kafka.apache.org/downloads)
     - Download the latest binary release (e.g., kafka_2.13-4.0.0.tgz).
     - Extract the downloaded .tgz file by using 7-Zip or a similar tool.
     - Double-click into the extracted folder (e.g., folder name: kafka_2.13-4.0.0)
     - Double-click into the inside single folder (e.g., single folder name: kafka_2.13-4.0.0)
-    - Move the all inside folder to the kafka directory created in step 1 (e.g., C:\kafka)
+    - Move all the inside folder to the kafka directory created in step 1 (e.g., C:\kafka)
 
 3. **Generate Cluster ID**
     - Open Command Prompt (CMD) in administrator mode by 
@@ -86,6 +86,9 @@ This document outlines the steps taken to set up Apache Kafka version 4.0.0 in *
     - Create kafka topic from the following command:
         - .\bin\windows\kafka-topics.bat --create --topic <TopicName> --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1
         - e.g. .\bin\windows\kafka-topics.bat --create --topic uci_air_quality_data --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1
+    
+---
+    
 ## Challenges
 
 1. **Shutdown broker because all log dirs in C:/tmp/kraft-combined-logs have failed**
