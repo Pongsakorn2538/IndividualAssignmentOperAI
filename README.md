@@ -30,15 +30,15 @@ This project implements a real-time data pipeline for air quality prediction usi
 ## How It Works
 
 1. **producer.py**
-- Reads the UCI Air Quality dataset
-- Selecting test dataset
-- Simulates real-time streaming using a time delay
-- Publishes JSON-encoded records to Kafka topic (`uci_air_quality_data`)
-- Sends an `end_of_stream` marker when done
+    - Reads the UCI Air Quality dataset
+    - Selecting test dataset
+    - Simulates real-time streaming using a time delay
+    - Publishes JSON-encoded records to Kafka topic (`uci_air_quality_data`)
+    - Sends an `end_of_stream` marker when done
 
 2. **consumer.py**
-- Subscribes to the Kafka topic
-- Applies data cleaning, rolling averages, lag features, and dummy encoding
-- Loads pre-trained models and scalers for each target pollutant (`COGT`, `NOxGT`, `NO2GT`, `C6H6GT`)
-- Makes predictions for each incoming record
-- Exports prediction logs to `phase_3_model_prediction/Model_Performance_Monitoring/`
+    - Subscribes to the Kafka topic
+    - Applies data cleaning, rolling averages, lag features, and dummy encoding
+    - Loads pre-trained models and scalers for each target pollutant (`COGT`, `NOxGT`, `NO2GT`, `C6H6GT`)
+    - Makes predictions for each incoming record
+    - Exports prediction logs to `phase_3_model_prediction/Model_Performance_Monitoring/`
