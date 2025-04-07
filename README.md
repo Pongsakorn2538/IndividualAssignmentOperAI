@@ -32,28 +32,28 @@ This project implements a real-time data pipeline for air quality prediction usi
 ## Prerequisites
 
 1. Please refer to kafka-setup for set up kafka.
-2. Require python library
-    - from confluent_kafka import Consumer, Producer
-    - import pandas as pd
-    - import numpy as np
-    - from sklearn.preprocessing import StandardScaler
-    - from sklearn.linear_model import LinearRegression, ElasticNet
-    - from sklearn.metrics import mean_squared_error, mean_absolute_error
-    - import lightgbm as lgb
-    - from itertools import product
-    - import matplotlib.pyplot as plt
-    - import seaborn as sns
-    - from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
-    - import statsmodels.api as sm
-    - from statsmodels.tsa.stattools import pacf
-    - from statsmodels.tsa.ar_model import AutoReg
-    - from pandas.api.types import CategoricalDtype
-    - import json
-    - import os
-    - import pickle
-    - import time
-    - import logging
-    - from ucimlrepo import fetch_ucirepo
+2. Required python library
+    - confluent_kafka  
+    - itertools  
+    - json  
+    - lightgbm  
+    - logging  
+    - matplotlib.pyplot  
+    - numpy  
+    - os  
+    - pandas  
+    - pandas.api.types  
+    - pickle  
+    - seaborn  
+    - sklearn.linear_model  
+    - sklearn.metrics  
+    - sklearn.preprocessing  
+    - statsmodels.api  
+    - statsmodels.graphics.tsaplots  
+    - statsmodels.tsa.ar_model  
+    - statsmodels.tsa.stattools  
+    - time  
+    - ucimlrepo
 
 ---
 
