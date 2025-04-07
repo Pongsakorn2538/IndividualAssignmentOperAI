@@ -11,7 +11,9 @@ This project implements a real-time data pipeline for air quality prediction usi
     - Contains markdown file to explain kafka setup process and data preprocessing process that happen in producer and consumer file.
     - Contains log file for both producer and consumer file to keep tranking the processes.
 2. **phase_2_eda**
-    - Contains the 02_00_TrainValidationTestSplit.ipynb to perform chronological train validation and test split and export train and validation dataset as .csv
+    - Contains markdown file to present Exploratory Data Analysis findings and data cleaning strategy.
+    - Contains images folders that store all images for markdown file.
+    - Contains the 02_00_TrainValidationTestSplit.ipynb to perform chronological train validation and test split and export train and validation dataset as .csv.
     - Contains the 02_01_00_DataCleaningAndEDA_for_Train.ipynb to perform data cleaning and EDA on train dataset and export cleaned_train_dataset as pickle file at phase_3_model_prediction folder.
     - Contains the 02_01_00_DataCleaningAndEDA_for_Validation.ipynb to perform data cleaning and EDAon validation dataset and export cleaned_validation_dataset as pickle file at phase_3_model_prediction folder.
 3. **phase_3_model_prediction**
