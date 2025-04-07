@@ -34,7 +34,45 @@ In general, we first replace the default placeholder for missing values (−200)
     ![image](images/training_data_time_series_plot_with_null_nox.png)
     ![image](images/training_data_time_series_plot_with_null_no2.png)
 
+6.	**Daily/weekly patterns (average by hour of day, day of week)**
+    Based on the daily and weekly patterns, we observe significant variations throughout the day and across different days of the week. This suggests that missing values should be filled using the previous valid observation, as this method helps preserve both hourly and weekly trends in the data.
     
+    - Hourly Trend
+    ![image](images/training_data_hour_trend_plot_with_null_co.png)
+    ![image](images/training_data_hour_trend_plot_with_null_benzene.png)
+    ![image](images/training_data_hour_trend_plot_with_null_nox.png)
+    ![image](images/training_data_hour_trend_plot_with_null_no2.png)
 
+    - Weekly Trend
+    ![image](images/training_data_weekly_trend_plot_with_null_co.png)
+    ![image](images/training_data_weekly_trend_plot_with_null_benzene.png)
+    ![image](images/training_data_weekly_trend_plot_with_null_nox.png)
+    ![image](images/training_data_weekly_trend_plot_with_null_no2.png)
 
+7.	**Autocorrelation and partial autocorrelation plots**
+    Based on the autocorrelation plots, we observe that past values have a strong relationship with current values, indicating temporal dependence in the data. The partial autocorrelation plots further confirm that a few recent lags contribute significantly to the current value. This suggests that incorporating lagged features into our model is important for capturing the underlying time-dependent structure of the data, and that time series models like SARIMA are well-suited for this task.
+    ![image](images/training_data_acf_plot.png)
+    ![image](images/training_data_pacf_plot.png)
 
+8.	Decomposition of time series into trend, seasonality, and residuals
+    Based on the decomposition of the time series into trend, seasonality, and residuals both 24 lags and 168 lags, we observe clear seasonal patterns and some level of noise, but no strong long-term trend. This suggests that modeling efforts should focus on capturing seasonal effects and minimizing residual variance, while the trend component can be considered omitted.
+    
+    - Carbon Monoxide (CO)
+    ![image](images/training_data_trend_plot_co.png)
+    ![image](images/training_data_seasonal_plot_co.png)
+    ![image](images/training_data_residual_plot_co.png)
+
+    - Benzene (C6H6)
+    ![image](images/training_data_trend_plot_benzene.png)
+    ![image](images/training_data_seasonal_plot_benzene.png)
+    ![image](images/training_data_residual_plot_benzene.png)
+
+    - Nitrogen Oxides (NO)
+    ![image](images/training_data_trend_plot_nox.png)
+    ![image](images/training_data_seasonal_plot_nox.png)
+    ![image](images/training_data_residual_plot_nox.png)
+
+    - Nitrogen Dioxide (NO2)
+    ![image](images/training_data_trend_plot_no2.png)
+    ![image](images/training_data_seasonal_plot_no2.png)
+    ![image](images/training_data_residual_plot_no2.png)
