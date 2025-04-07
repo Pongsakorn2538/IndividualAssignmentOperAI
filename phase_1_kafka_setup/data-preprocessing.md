@@ -15,8 +15,16 @@ This document outlines the data preprocessing steps applied to producer and cons
 ---
 
 ## Data Preprocessing Strategy 
+1. **Train Validation Test Split**  
+  To simulate a real-world scenario, we use chronological train-validation-test split to ensure robust model evaluation and avoid data leakage in this temporal context. The dataset was divided as follows:
+    - Training Dataset: From March 11, 2004 to October 31, 2004 — used to train predictive models. 
+      - 5,646 records (60.34%)
+    - Validation Dataset: From November 1, 2004 to December 31, 2004 — used to tune hyperparameters and compare model performance.
+      - 1,464 records (15.65%)
+    - Testing Dataset: From January 1, 2005 to April 4, 2005 — used to evaluate the final model performance on unseen data.
+      - 2,247 records (24.01%)
 
-1. **Producer.py**
+2. **Producer.py**
     - Reads the UCI Air Quality dataset
     - Timestamp Parsing and Sorting
       - The dataset contains separate `Date` and `Time` columns.
@@ -34,7 +42,7 @@ This document outlines the data preprocessing steps applied to producer and cons
       - Logs exceptions and data shapes using the `logging` module.
       - Ensures that any issues during preprocessing are traceable through the `producer.log` file.
 
-2. **Consumer.py**
+3. **Consumer.py**
     - Subscribes to the topic (uci_air_quality_data) using confluent_kafka.Consumer.
     - Logs all Kafka activity to a file named consumer.log in the current directory.
     - Loads the last 25 rows from the validation dataset cleaned_validation_dataset.pkl as historical context
